@@ -1,6 +1,6 @@
-# Título del Proyecto
+# Daily Personal Tasks
 
-_Acá va un párrafo que describa lo que es el proyecto_
+_Esta aplicación sirve para registrar tus tareas dirarias, que te propones a si mismo, ayudadando asi a volverte mas productivo_
 
 ## Comenzando 🚀
 
@@ -14,24 +14,29 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 _Que cosas necesitas para instalar el software y como instalarlas_
 
 ```
-Da un ejemplo
+Descarga e intala yarn 
 ```
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+_Paso 1_
 
 ```
-Da un ejemplo
+Descarga o clona el proyecto en tu dispositivo
 ```
 
-_Y repite_
+_Paso 2_
 
 ```
-hasta finalizar
+En un terminal ubicada en el proyecto ejecuta "yarn install" para instalar las dependencais del proyecto
 ```
+
+_Paso 3_
+
+```
+Ejecuta "yarn dev" en la terminal para correr el proyecto y listo abre el link que te aparece en la consola "localhost:3000"
+```
+
 
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
@@ -63,9 +68,8 @@ _Agrega notas adicionales sobre como hacer deploy_
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+* [Reactjs](https://es.reactjs.org/) - El framework web usado
+* [Tailwindcss](https://tailwindcss.com/) - Framework para estilizar tus componentes
 
 ## Contribuyendo 🖇️
 
@@ -81,12 +85,8 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+* **YELSIN CASO ALANYA** - *Creador* - [YELSIÑO](https://github.com/yelsino)
 
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
 
 ## Licencia 📄
 
@@ -102,4 +102,4 @@ Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md
 
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+⌨️ con ❤️ por [YELSIÑO](https://github.com/yelsino) 😊
