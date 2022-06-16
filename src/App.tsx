@@ -17,28 +17,28 @@ const firebaseConfig = {
   appId: "1:626218917952:web:72eb136517963f43f13fa5",
 };
 
-const INITIAL_TASKS = [
-  { id: uuidv4(), title: "Task 1", status: false },
-  { id: uuidv4(), title: "Task 2", status: false },
-  { id: uuidv4(), title: "Task 3", status: false },
-  { id: uuidv4(), title: "Task 4", status: false },
-]
+// const INITIAL_TASKS = [
+//   { id: uuidv4(), title: "Task 1", status: false },
+//   { id: uuidv4(), title: "Task 2", status: false },
+//   { id: uuidv4(), title: "Task 3", status: false },
+//   { id: uuidv4(), title: "Task 4", status: false },
+// ]
 
 function App() {
   initializeApp(firebaseConfig);
 
-  const [tasks, setTasks] = useState(INITIAL_TASKS)
+  const [tasks, setTasks] = useState<Array<ITask>>([])
 
-  // useEffect(() => {
-  //   setTasks(JSON.parse(localStorage.getItem("tasks") || "[]"))
-  // },[])
+  useEffect(() => {
+    setTasks(JSON.parse(localStorage.getItem("tasks") || "[]"))
+  },[])
 
   return (
     <div className="h-screen sm:bg-gray-50 flex items-center sm:pt-10">
       <BrowserRouter>
         <div className="max-w-sm mx-auto p-10 bg-white  sm:h-[calc(100vh-100px)] sm:rounded-3xl flex flex-col gap-y-7 relative">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard  />} />
             <Route
               path="/tasks"
               element={<Tasks tasks={tasks} setTasks={setTasks}  />}
