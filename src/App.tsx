@@ -5,8 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Tasks from "./components/Pages/Tasks";
 import NewTask from "./components/Pages/NewTask";
 import { useEffect, useState } from "react";
-import { ITask } from "./interfaces/ITask";
-import { v4 as uuidv4 } from "uuid";
+import { PropsDbTasks, PropTasks } from "./interfaces/Tasks";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxRQ7WP5hO_1hGGgUaGDrZ4S1QJLGWizk",
@@ -17,20 +16,20 @@ const firebaseConfig = {
   appId: "1:626218917952:web:72eb136517963f43f13fa5",
 };
 
-// const INITIAL_TASKS = [
-//   { id: uuidv4(), title: "Task 1", status: false },
-//   { id: uuidv4(), title: "Task 2", status: false },
-//   { id: uuidv4(), title: "Task 3", status: false },
-//   { id: uuidv4(), title: "Task 4", status: false },
-// ]
+
 
 function App() {
   initializeApp(firebaseConfig);
 
-  const [tasks, setTasks] = useState<Array<ITask>>([])
+  const [tasks, setTasks] = useState<Array<PropTasks>>([])
+  const [dbTasks, setDbTasks] = useState<Array<PropsDbTasks>>([])
 
   useEffect(() => {
-    setTasks(JSON.parse(localStorage.getItem("tasks") || "[]"))
+    setTasks(JSON.parse(localStorage.getItem("dbTasks") || "[]")[0].tasks)
+  },[])
+
+  useEffect(() => {
+    setDbTasks(JSON.parse(localStorage.getItem("dbTasks") || "[]"));
   },[])
 
   return (
@@ -38,10 +37,10 @@ function App() {
       <BrowserRouter>
         <div className="max-w-sm mx-auto p-10 bg-white  sm:h-[calc(100vh-100px)] sm:rounded-3xl flex flex-col gap-y-7 relative">
           <Routes>
-            <Route path="/" element={<Dashboard  />} />
+            <Route path="/" element={<Dashboard dbTasks={dbTasks}   />} />
             <Route
               path="/tasks"
-              element={<Tasks tasks={tasks} setTasks={setTasks}  />}
+              element={<Tasks tasks={tasks} setTasks={setTasks} dbTasks={dbTasks}  />}
             />
             <Route path="/tasks/new-task" element={<NewTask  />} />
           </Routes>

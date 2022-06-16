@@ -1,8 +1,8 @@
-import { ITask } from "../../interfaces/ITask";
+import { PropTasks } from "../../interfaces/Tasks";
 
 interface Props {
-  task: ITask;
-  changeState: (task: ITask) => void;
+  task: PropTasks;
+  changeState: (task: PropTasks) => void;
 }
 
 const Task = ({ task, changeState }: Props) => {

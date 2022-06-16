@@ -1,21 +1,21 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import { ITask } from "../../interfaces/ITask";
+import { PropTasks } from "../../interfaces/Tasks";
 import { v4 as uuidv4 } from "uuid";
 import { IconDelete } from "../Atoms/Icons";
 
 const NewTask = () => {
   const navigate = useNavigate();
 
-  const [tasks, setTasks] = React.useState<Array<ITask>>([]);
-  const [task, setTask] = React.useState<ITask>({
+  const [tasks, setTasks] = React.useState<Array<PropTasks>>([]);
+  const [task, setTask] = React.useState<PropTasks>({
     id: "",
     title: "",
     status: false,
   });
 
   const [tasksSqueleton, setTasksSqueleton] =
-    React.useState<Array<ITask>>(datasqueleton);
+    React.useState<Array<PropTasks>>(datasqueleton);
 
   const saveTaskOnTasks = () => {
     if (task.title.length <= 0) return alert("Please, write a task");
@@ -52,7 +52,11 @@ const NewTask = () => {
   const saveAllTaskS = () => {
     // SAVE TASKS IN LOCAL STORAGE
     if (tasks.length < 1) return alert("No hay tareas para guardar");
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    const dbTasks = JSON.parse(localStorage.getItem("dbTasks") || "[]");
+    localStorage.setItem(
+      "dbTasks",
+      JSON.stringify([...dbTasks, { id: uuidv4(), day: new Date(), tasks }])
+    );
   };
 
   const deleteOneTask = (id: string) => {
@@ -61,6 +65,7 @@ const NewTask = () => {
       console.log("ya es menor a 4");
       //
 
+      // !get id of the last element tasks
       setTasksSqueleton((prev) => [...prev, datasqueleton[0]]);
     }
   };
