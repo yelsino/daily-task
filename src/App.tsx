@@ -41,7 +41,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route
               path="/tasks"
-              element={<Tasks tasks={tasks}  />}
+              element={<Tasks tasks={tasks} setTasks={setTasks}  />}
             />
             <Route path="/tasks/new-task" element={<NewTask  />} />
           </Routes>
