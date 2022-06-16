@@ -19,7 +19,7 @@ const Dashboard = ({ dbTasks }: DashboardProps) => {
 
   React.useEffect(() => {
     setDayState(
-      moment(dbTasks[0].day).format("L") === moment(Date.now()).format("L")
+      moment(dbTasks[0]?.day).format("L") === moment(Date.now()).format("L")
         ? true
         : false
     );
@@ -31,7 +31,7 @@ const Dashboard = ({ dbTasks }: DashboardProps) => {
       <Welcome />
       <Stats />
 
-      {dayState ? (
+      {dayState && dbTasks.length >=1 ? (
         <span
           className={` w-full font-poppins py-5 rounded-full text-center ${
             dayState ? "bg-white text-black border font-semibold" : "bg-black text-white"

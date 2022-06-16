@@ -25,7 +25,7 @@ function App() {
   const [dbTasks, setDbTasks] = useState<Array<PropsDbTasks>>([])
 
   useEffect(() => {
-    setTasks(JSON.parse(localStorage.getItem("dbTasks") || "[]")[0].tasks)
+    setTasks(JSON.parse(localStorage.getItem("dbTasks") || "[]")[0]?.tasks)
   },[])
 
   useEffect(() => {

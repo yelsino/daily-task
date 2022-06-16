@@ -51,7 +51,7 @@ export default function Tasks({ tasks, setTasks, dbTasks }: Props) {
         Estas tareas serán archivadas automaticamente a las 11:59 de la noche
       </p>
       <div className="flex flex-col gap-y-2 h-[calc(100vh-300px)] overflow-y-scroll">
-        {tasks.map((task, index) => (
+        {tasks?.map((task, index) => (
           <Task key={index} task={task} changeState={changeStateOfTask} />
         ))}
       </div>
