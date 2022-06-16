@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Header from "../Header";
 import Stats from "../Stats/Stats";
 import Welcome from "../Welcome";
@@ -14,11 +15,9 @@ export default class Dashboard extends React.Component<IDashboardProps> {
         <Welcome />
         <Stats />
 
-        <div>
-          <button className="bg-black text-white w-full font-poppins py-5 rounded-full">
+          <Link to='/tasks/new-task' className="bg-black text-white w-full font-poppins py-5 rounded-full text-center">
             New task
-          </button>
-        </div>
+          </Link>
       </>
     );
   }
